@@ -21,3 +21,8 @@ ENV APACHE_LOG_DIR /var/log/apache2
 EXPOSE 80
 
 CMD ["/usr/sbin/apache2", "-D",  "FOREGROUND"]
+
+FROM openjdk:8u111-jdk-alpine
+VOLUME /tmp
+ADD /target/my-spring-boot-web-aws-exe.jar
+ENTRYPOINT ["java","-jar","/my-spring-boot-web-aws-exe.jar"]
